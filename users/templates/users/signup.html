@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+        {% load static from staticfiles %}
+<html>
+<head>
+    <title>Signup | mydailyfit</title>
+    <link href="{% static 'bootstrap/css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap/css/signup.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap/css/navbar.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap/css/f_p.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap/css/login.css' %}" rel="stylesheet">
+    <link rel="shortcut icon" href="{% static 'inc/favicon/favicon-64.png' %}">
+</head>
+<body>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title c-black" id="myModalLabel">Login</h4>
+                </div>
+                <div class="modal-body">
+                    <form method="post" action="{% url 'users:index' %}" class="lgn-form" role="form">
+                        {% csrf_token %}
+                        {% for field in login_form %}
+                            {{ field }}
+                        {% endfor %}
+                        <button type="submit" class="m-t-5 center-block btn btn-lg btn-block btn-primary">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<nav class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="container">
+        <button type="button" class="navbar-toggle m-t-2" data-toggle="collapse" data-target="#menucollapse">
+            <span class="sr-only">Toggle Menu</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a href="/users"><h4 class="navbar-brand" id="logo">mydailyfit</h4></a>
+        <div class="collapse navbar-collapse" id="menucollapse">
+            <ul class="nav navbar-nav navbar-right p-t-10">
+                <li><h4><a href="#myModal" class="t-w-t" data-toggle="modal" type="button" role="button">Login</a></h4></li>
+                <li><h4><a href="{% url 'users:pt' %}" class="i-btn-txt"><button class="i-btn">BECOME A PERSONAL TRAINER</button></a></h4></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="row p-t-50 center-block">
+    <div class="col-md-4 col-md-offset-4 lg-box">
+        <h2 class="em2">Sign up for mydailyfit</h2>
+        <hr class="gr-hr">
+        {% if messages %}
+            {% for message in messages %}
+                <h5 class="text-center spcl-xs-thin bg-danger">{{ message|striptags|linebreaks }}</h5>
+            {% endfor %}
+        {% endif %}
+        {% if new_user.errors %}
+            {% for error in new_user.errors %}
+                {{ error }}
+            {% endfor %}
+        {% endif %}
+        <form action="{% url 'users:new_user' %}" method="POST">
+            {% csrf_token %}
+            {% for field in new_user %}
+                {{ field }}
+            {% endfor %}
+            <input type="submit" class="m-t-2 btn btn-primary btn-lg btn-block" value="Sign Up">
+        </form>
+        </div>
+    </div>
+</div>
+
+<div id="footer">
+                    <p class="text-center"><span class="copy ro">&copy; 2014 mydailyfit</span><a class="rl t-bl" href="#">Help</a>
+                        <a class="t-bl rl" href="#">About</a> <a class="rl t-bl" href="#">Privacy Policy</a>
+                        <a class="rl t-bl" href="#">Terms</a> <a class="rl t-bl" href="#">Cookies</a> <a class="rl t-bl" href="#">Advertisers</a>
+                    </p>
+                </div>
+
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,355 @@
+* {
+    font-family: "Arial";
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    padding: 0 !important;
+    /*background: url(../../inc/plank_o.png) no-repeat center center fixed;
+    background-size: cover;*/
+    margin-bottom: -5%;
+    color: #000;
+}
+
+.form-inline {
+    padding: 1%;
+    border-radius: 5px;
+}
+
+.form-inline .form-control {
+    width: 100%;
+}
+
+.c-w {
+    color: #fff;
+    text-shadow: 1px 2px 3px #333;
+}
+
+.bg-w {
+    background-color: rgba(255, 255, 255, .6);
+    border-radius: 50px;
+}
+
+.r-wh {
+    background-color: #fff;
+}
+
+.r-bl-o {
+    background-color: rgba(255,255,255, .75);
+    color: #fff;
+    text-shadow: 1px 2px 3px #333;
+}
+
+.r-bl {
+    background-color: rgba(20, 167, 34, 1);
+    color: #fff;
+    text-shadow: 1px 2px 3px #333;
+}
+
+.r-bck {
+    background-color: #27292b;
+}
+
+.r-bck-o {
+    background-color: rgba(39,41,43,.75);
+}
+
+.c-form {
+    background-color: rgba(39,41,43,.75);
+}
+
+.bg-photo {
+    background: url(../../inc/blond.jpg) center;
+    background-size: cover;
+    padding: 0 !important;
+    border: solid 1px #777;
+    border-radius: 5px;
+}
+
+.bg-photo-r {
+    background: url(../../inc/plank_o.png) bottom center;
+    background-size: cover;
+}
+
+.r-run {
+    background: url('../../inc/running.png') center;
+    background-size: cover;
+}
+
+.r-ru1 {
+    background: url('../../inc/run1.png') center;
+    background-size: cover;
+}
+
+.hr-or {
+    border-top: 1px solid #e8ac21;
+    box-shadow: 1px 1px 4px #e8ac21;
+    width: 65%;
+}
+
+.hr-bl {
+    border-top: 1px solid #0041aa;
+    box-shadow: 1px 1px 4px #0041aa;
+    width: 65%;
+}
+
+.r-w {
+    color: #fff;
+    text-shadow: 1px 2px 3px #333;
+    background: url('../../inc/train.jpg') fixed;
+    background-size: cover;
+    min-height: 610px;
+}
+
+.r-oa {
+    background: url('../../inc/oats.png') center;
+    background-size: cover;
+    min-height: 300px;
+}
+
+.m-over {
+    padding: 10%;
+    border-radius: 5px;
+    transition: all .3s;
+}
+
+.m-over:hover {
+    background-color: rgba(39,41,43,.5);
+    padding: 10%;
+    transition: all .3s;
+}
+
+.r-pu {
+    background: url('../../inc/pushup.png') center;
+    background-size: cover;
+}
+
+.r-blond {
+    background: url('../../inc/blond.png') center;
+    background-size: cover;
+}
+
+.r-even {
+    color: #fff;
+    /*background: -webkit-linear-gradient(top, rgba(125, 163, 214, 1), rgba(66, 139, 202, 1));*/
+    background-color: #222;
+    background-size: cover;
+    /*text-shadow: 1px 2px 3px #000;*/
+    /*box-shadow: 1px 5px 10px #7ba2d5;*/
+    min-height: 100%;
+}
+
+.blog {
+    background: url('../../inc/blog.png');
+    background-size: cover;
+    width: 150px;
+    height: 150px;
+}
+
+.discount {
+    background: url('../../inc/discountd.png');
+    background-size: cover;
+    width: 150px;
+    height: 150px;
+}
+
+.card {
+    background: url('../../inc/card.png');
+    background-size: cover;
+    width: 150px;
+    height: 150px;
+}
+
+.r-si {
+    /*background-color: #7ba2d5;*/
+    background-color: #222;
+    color: #fff;
+}
+
+.up-1 {
+    color: rgba(255,255,0,1);
+    font-size: 4em;
+}
+
+.points {
+    background: url('../../inc/points.png');
+    background-size: cover;
+    height: 120px;
+    width: 120px;
+}
+
+.rewards {
+    background: url('../../inc/reward.png');
+    background-size: cover;
+    height: 120px;
+    width: 120px;
+}
+
+.custom {
+    background: url('../../inc/plan-icon.png');
+    background-size: cover;
+    height: 120px;
+    width: 120px;
+    transition: all .3s;
+}
+
+.custom:hover {
+    transiton: all .3s;
+}
+
+.tool {
+    background: url('../../inc/tool2.png');
+    background-size: cover;
+    height: 120px;
+    width: 120px;
+    transition: all .3s;
+}
+
+.tool:hover {
+    transition: all .3s;
+}
+
+.com {
+    background: url('../../inc/money.png');
+    background-size: cover;
+    height: 120px;
+    width: 120px;
+    transition: all .3s;
+}
+
+.lock {
+    background: url('../../inc/lock.png');
+    background-size: cover;
+    min-height: 120px;
+    min-width: 120px;
+}
+
+.com:hover {
+    transition: all .3s;
+}
+
+.loc {
+    background: url('../../inc/loc.png');
+    background-size: cover;
+    height: 120px;
+    width: 120px;
+    transition: all .3s;
+}
+
+.loc:hover {
+    transition: all .3s
+}
+
+.progress-icon {
+    background: url('../../inc/progress-icon2.png');
+    background-size: cover;
+    width: 120px;
+    height: 120px;
+    transition: all .3s;
+}
+
+.progress-icon:hover {
+    transition: all .3s;
+}
+
+.pt-icon {
+    background: url('../../inc/pt-icon2.png');
+    background-size: cover;
+    width: 120px;
+    height: 120px;
+    transition: all .3s;
+}
+
+.pt-icon:hover {
+    transition: all .3s;
+}
+
+.pt-block {
+    background: url('../../inc/train.jpg') top center fixed;
+    background-size: cover;
+    color: #fff;
+    min-height: 650px;
+    text-shadow: 1px 2px 3px #333;
+    -webkit-transition: all .8s ease-in-out;
+}
+
+.price-box {
+    color: #000;
+    text-shadow:none;
+    padding: 2%;
+    background: rgba(247,249,250,0.84) linear-gradient(#fff,rgba(255,255,255,0));
+    border-radius: 5px;
+    max-width: 406px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.42),0 0 1px rgba(0,0,0,0.12),inset 0 -1px 2px rgba(14,60,86,0.1);
+}
+
+.price-block {
+    background: url('../../inc/blond.jpg') fixed;
+    background-size: cover;
+    color: #fff;
+    min-height: 610px;
+    text-shadow: 1px 2px 3px #333;
+}
+
+.final-block {
+    background: url('../../inc/blond.jpg') fixed;
+    background-size: cover;
+    color: #fff;
+    min-height: 610px;
+    text-shadow: 1px 2px 3px #333;
+}
+
+.back {
+    font-family: 'RussoOne-Regular';
+}
+
+#pt-footer {
+    position: relative;
+    bottom: 0;
+    padding-top: 7%;
+    color: #fff;
+    text-shadow: 1px 2px 3px #333;
+    width: 100%;
+    height: 1%;
+}
+
+@font-face {
+    font-family: 'Roboto-Medium';
+    src: url('../fonts/Roboto-Medium.ttf');
+}
+
+@font-face {
+    font-family: 'Roboto-Light';
+    src: url('../fonts/Roboto-Light.ttf');
+}
+
+@font-face {
+    font-family: 'Roboto-Thin';
+    src: url('../fonts/Roboto-Thin.ttf');
+}
+
+@font-face {
+  font-family: 'RussoOne-Regular';
+  src: url('../fonts/RussoOne-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Sansation_Light';
+    src: url('../fonts/Sansation_Light.ttf');
+}
+
+@font-face {
+    font-family: 'Sansation_Regular':
+    src: url('../fonts/Sansation_Regular.ttf');
+}
+
+@media (min-width:768px) {
+
+    .form-inline .form-control {
+        width: 41%;
+    }
+
+}

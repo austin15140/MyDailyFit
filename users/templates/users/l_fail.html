@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+        {% load static from staticfiles %}
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Online Personal Training - mydailyfit</title>
+    <link href="{% static 'bootstrap/css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap/css/signup.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap/css/navbar.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap/css/f_p.css' %}" rel="stylesheet">
+    <link rel="shortcut icon" href="{% static 'inc/favicon/favicon-32.png' %}">
+</head>
+<body>
+
+<div class="row">
+    <div class="container-fluid">
+        <h3 class="text-center bg-danger p-t-15 p-b-15">{{ msg }}</h3>
+        <div class="col-md-4 col-md-offset-4">
+            <form action="{% url 'users:index' %}" role="form">
+                {% csrf_token %}
+                {% for field in login_form %}
+                    {{ field }}
+                {% endfor %}
+                <button type="submit" class="btn btn-lg btn-block btn-primary m-t-2" style="width: 100%">Login</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script src="{% static 'bootstrap/js/jquery.min.js' %}"></script>
+<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+</body>

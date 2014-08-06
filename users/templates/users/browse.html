@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+        {% load static from staticfiles %}
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Online Personal Training - mydailyfit</title>
+    <link href="{% static 'bootstrap/css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap/css/signup.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap/css/browse.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap/css/navbar.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap/css/f_p.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap/css/override.css' %}" rel="stylesheet">
+    <link rel="shortcut icon" href="{% static 'inc/favicon/favicon-32.png' %}">
+</head>
+<body>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title c-black text-center" id="myModalLabel">Login</h4>
+                </div>
+                <div class="modal-body">
+                    <form method="post" action="{% url 'users:index' %}" class="lgn-form" role="form">
+                        {% csrf_token %}
+                        {% for field in login_form %}
+                            {{ field }}
+                        {% endfor %}
+                        <button type="submit" class="m-t-5 center-block btn btn-lg btn-block btn-primary">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title c-black text-center" id="signupModalLabel">Sign Up - It's Free!</h4>
+                    <p class="text-center">Are you a personal trainer? Sign up <a class="t-gr" href="{% url 'users:pt' %}">here</a></p>
+                </div>
+                <div class="modal-body">
+                    <form method="post" action="{% url 'users:signup' %}" class="lgn-form" role="form">
+                        {% csrf_token %}
+                        {% for field in new_user %}
+                            {{ field }}
+                        {% endfor %}
+                        <button type="submit" class="m-t-5 center-block btn btn-lg btn-block btn-primary">Sign Up</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="row center-block p-b-15">
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="container">
+        <button type="button" class="navbar-toggle" style="margin-top: 10px;" data-toggle="collapse" data-target="#menucollapse">
+            <span class="sr-only">Toggle Menu</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+            <a href="{% url 'users:index' %}"><h4 class="navbar-brand" id="logo">mydailyfit</h4></a>
+            <div class="collapse navbar-collapse" id="menucollapse">
+                <ul class="nav navbar-nav navbar-right p-t-5">
+                    <li class="p-t-7"><h4><a href="#myModal" class="t-w-t" data-toggle="modal" type="button" role="button">Login</a></h4></li>
+                    <li class="p-t-7"><h4><a href="#signupModal" class="t-w-t" data-toggle="modal" type="button" role="button">Signup</a></h4></li>
+                    <li class="p-t-7"><h4><a href="#" class="t-w-t">How It Works</a></h4></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="row center-block p-b-35">
+    <div class="container">
+        <a href="#" class="t-w">
+            <div class="col-md-12 r-ru1 advert">
+                <h1 class="text-center spcl p-t-15">Advertisement Space</h1>
+            </div>
+        </a>
+    </div>
+</div>
+
+<div class="row center-block p-b-40">
+    <div class="container">
+        <div class="col-md-3 filter">
+            <div class="container-fluid">
+                <h4 class="p-l-5-p p-t-15 rm t-bl-s">FILTER RESULTS BY:</h4>
+                <h4 class="d-head p-l-5-p p-t-20 rl t-gr-b">Specialization:</h4>
+                <select name="category" class="form-control w-90-p m-l-5 m-t-5 m-b-10" id="category">
+                    <option value="Specialization">Specialization</option>
+                    <option value="18-29">18-29</option>
+                    <option value="30-39">30-39</option>
+                    <option value="40-49">40-49</option>
+                    <option value="50+">50+</option>
+                </select>
+                <h4 class="d-head p-l-5-p rl t-gr-b">Average Rating</h4>
+                <select name="rating" class="form-control w-90-p m-l-5 m-t-5 m-b-10" id="rating">
+                    <option value="Rating">Average Rating</option>
+                    <option value="18-29">18-29</option>
+                    <option value="30-39">30-39</option>
+                    <option value="40-49">40-49</option>
+                    <option value="50+">50+</option>
+                </select>
+                <h4 class="d-head p-l-5-p rl t-gr-b">Training Style</h4>
+                <select name="training" class="form-control w-90-p m-l-5 m-t-5 m-b-10" id="training">
+                    <option value="Training">Training Style</option>
+                    <option value="18-29">18-29</option>
+                    <option value="30-39">30-39</option>
+                    <option value="40-49">40-49</option>
+                    <option value="50+">50+</option>
+                </select>
+                <h4 class="d-head p-l-5-p rl t-gr-b">Price:</h4>
+                <select name="pricing" class="form-control w-90-p m-l-5 m-t-5 m-b-10" id="pricing">
+                    <option value="Pricing">Price per month</option>
+                    <option value="18-29">18-29</option>
+                    <option value="30-39">30-39</option>
+                    <option value="40-49">40-49</option>
+                    <option value="50+">50+</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="container-fluid">
+                <a href="#">
+                    <div class="row results">
+                        <div class="col-md-3 p-img p-t-10 p-b-10">
+                            <h3 class="text-center p-t-30 t-imp">IMAGE</h3>
+                        </div>
+                        <div class="col-md-9 p-t-40 p-b-10">
+                            <h3 class="text-center t-imp">PERSONAL TRAINER BIO</h3>
+                        </div>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="row results">
+                        <div class="col-md-3 p-img p-t-10 p-b-10">
+                            <h3 class="text-center p-t-30 t-imp">IMAGE</h3>
+                        </div>
+                        <div class="col-md-9 p-t-40 p-b-10">
+                            <h3 class="text-center t-imp">PERSONAL TRAINER BIO</h3>
+                        </div>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="row results">
+                        <div class="col-md-3 p-img p-t-10 p-b-10">
+                            <h3 class="text-center p-t-30 t-imp">IMAGE</h3>
+                        </div>
+                        <div class="col-md-9 p-t-40 p-b-10">
+                            <h3 class="text-center t-imp">PERSONAL TRAINER BIO</h3>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="t-w">
+                    <div class="row results r-ru1">
+                        <div class="col-md-12 advert">
+                            <h1 class="text-center spcl p-t-15">Advertisement Space</h1>
+                        </div>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="row results">
+                        <div class="col-md-3 p-img p-t-10 p-b-10">
+                            <h3 class="text-center p-t-30 t-imp">IMAGE</h3>
+                        </div>
+                        <div class="col-md-9 p-t-40 p-b-10">
+                            <h3 class="text-center t-imp">PERSONAL TRAINER BIO</h3>
+                        </div>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="row results">
+                        <div class="col-md-3 p-img p-t-10 p-b-10">
+                            <h3 class="text-center p-t-30 t-imp">IMAGE</h3>
+                        </div>
+                        <div class="col-md-9 p-t-40 p-b-10">
+                            <h3 class="text-center t-imp">PERSONAL TRAINER BIO</h3>
+                        </div>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="row results">
+                        <div class="col-md-3 p-img p-t-10 p-b-10">
+                            <h3 class="text-center p-t-30 t-imp">IMAGE</h3>
+                        </div>
+                        <div class="col-md-9 p-t-40 p-b-10">
+                            <h3 class="text-center t-imp">PERSONAL TRAINER BIO</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+     <div id="footer" class="m-t-2">
+        <p class="text-center"><span class="copy ro">&copy; 2014 mydailyfit</span><a class="rl t-bl" href="#">Help</a>
+            <a class="t-bl rl" href="#">About</a> <a class="rl t-bl" href="#">Privacy Policy</a>
+            <a class="rl t-bl" href="#">Terms</a> <a class="rl t-bl" href="#">Cookies</a> <a class="rl t-bl" href="#">Advertisers</a>
+        </p>
+    </div>
+</div>
+
+<script src="{% static 'bootstrap/js/jquery.min.js' %}"></script>
+<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+</body>

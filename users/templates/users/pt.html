@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+        {% load static from staticfiles %}
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Online Personal Training | mydailyfit</title>
+    <link href="{% static 'bootstrap/css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap/css/signup.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap/css/navbar.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap/css/f_p.css' %}" rel="stylesheet">
+    <link rel="shortcut icon" href="{% static 'inc/favicon/favicon-64.png' %}">
+</head>
+<body>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title c-black text-center" id="myModalLabel">Login</h4>
+                </div>
+                <div class="modal-body">
+                    <form method="post" action="{% url 'users:u_login' %}" class="lgn-form" role="form">
+                        {% csrf_token %}
+                        {% for field in login_form %}
+                            {{ field }}
+                        {% endfor %}
+                        <button type="submit" class="btn btn-lg center-block m-t-5 btn-block btn-primary">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title c-black text-center" id="signupModalLabel">Sign Up - It's Free!</h4>
+                    <p class="text-center">Are you a personal trainer? Sign up <a href="#">here</a></p>
+                </div>
+                <div class="modal-body">
+                    <form method="post" action="{% url 'users:new_user' %}" class="lgn-form" role="form">
+                        {% csrf_token %}
+                        {% for field in new_user %}
+                            {{ field }}
+                        {% endfor %}
+                        <button type="submit" class="btn btn-lg center-block m-t-5 btn-block btn-primary">Sign Up</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <button type="button" class="navbar-toggle" style="margin-top: 15px;" data-toggle="collapse" data-target="#menucollapse">
+                <span class="sr-only">Toggle Menu</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+                <a href="/users"><h4 class="navbar-brand" id="logo">mydailyfit</h4></a>
+                <div class="collapse navbar-collapse" id="menucollapse">
+                    <ul class="nav navbar-nav navbar-right p-t-10">
+                        <li><h4><a href="{% url 'users:index' %}" class="t-w">Home</a></h4></li>
+                        <li><h4><a href="#myModal" class="t-w" data-toggle="modal" type="button" role="button">Login</a></h4></li>
+                        <li><h4><a href="#signupModal" class="t-w" data-toggle="modal" type="button" role="button">Signup</a></h4></li>
+                    </ul>
+                </div>
+            </div>
+    </nav>
+
+    <div class="row center-block pt-block">
+        <div class="container init-txt">
+            <div class="col-md-12">
+                <h1 class="spcl-lg text-center rm">The perfect platform for you to grow your client base.</h1>
+                <h1 class="text-center m-t-10"><a href="#signupModal" class="i-btn-txt" data-toggle="modal" type="button" role="button"><button class="i-btn">SIGNUP</button></a></h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="row center-block r-wh">
+        <div class="container-fluid p-t-25">
+            <h1 class="text-center spcl-lg-thin rl p-b-15">All of your clients. One location.</h1>
+            <h1 class="text-center spcl-md-thin rl p-b-80">Mydailyfit is the easiest way to begin training new and existing clients online.</h1>
+            <img class="img-responsive center-block" src="{% static 'inc/location.png' %}">
+        </div>
+    </div>
+    <div class="row center-block spacer">
+        <div class="container-fluid">
+            <div class="row r-pu p-b-80">
+                <div class="col-md-6 spacer p-b-40 col-md-offset-1">
+                    <h1 class="rm w-t-sh spcl-lg spacer">GROW YOUR BUSINESS</h1>
+                    <h1 class="rt w-t-sh spcl-md p-t-15 p-b-80">Whether you're just starting your business or you've been in business for a while, mydailyfit can help you grow online. With thousands
+                     of people looking for the best trainer on mydailyfit, there is always an opportunity for you.</h1>
+                    <h1><a href="#signupModal" class="i-btn-txt" data-toggle="modal" type="button" role="button"><button class="i-btn">SIGNUP</button></a></h1>
+                </div>
+            </div>
+            <div class="row r-wh">
+                <div class="container-fluid p-b-80 p-t-25">
+                    <h1 class="text-center spcl-lg-thin rl p-b-15">Use our tools. Track everything.</h1>
+                    <h1 class="text-center spcl-md-thin rl p-b-80">Use the tools we provide you with to market yourself on our site and to track your business' activity.</h1>
+                    <img class="img-responsive center-block" src="{% static 'inc/tools.png' %}">
+                </div>
+            </div>
+            <div class="row r-blond p-b-80">
+                <div class="col-md-5 spacer p-b-80 col-md-offset-6">
+                    <h1 class="rm w-t-sh spcl-lg spacer">AFFORDABLE PRICING</h1>
+                    <h1 class="rt w-t-sh spcl-md p-t-15 p-b-80">We give you everything you need to reach new clients online for the low price of <span class="t-gr-b">$19.99 per month</span>. That's less than a night out
+                    at the movies!</h1>
+                    <h1><a href="#signupModal" class="i-btn-txt" data-toggle="modal" type="button" role="button"><button class="i-btn">SIGNUP</button></a></h1>
+                </div>
+            </div>
+            <div class="row r-wh">
+                <div class="container-fluid p-b-80 p-t-25">
+                    <h1 class="text-center spcl-lg-thin rl p-b-15">You work hard. Keep what you earn.</h1>
+                    <h1 class="text-center spcl-md-thin rl p-b-80">When you're hired by a new client, you get to keep all of the money. We don't charge commission.</h1>
+                    <img class="img-responsive center-block" src="{% static 'inc/wallet.png' %}">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row center-block r-run">
+        <div class="row center-block t-w-s">
+            <div class="container-fluid p-b-80">
+                <div class="col-md-6 spacer p-b-80 col-md-offset-1">
+                    <h1 class="w-t-sh rm spcl-lg spacer">HAVE FUN WITH IT</h1>
+                    <h1 class="rt p-t-15 p-b-80 spcl-md">Now, with our trophy system, running your business can be more like playing an awesome fitness game!
+                        Earn trophies for successfully training your clients and helping them reach their goals. So, what are you waiting for?</h1>
+                    <h1><a href="#signupModal" class="i-btn-txt" data-toggle="modal" type="button" role="button"><button class="i-btn">SIGNUP</button></a></h1>
+                </div>
+            </div>
+                <div id="footer">
+                    <p class="text-center"><span class="copy rm">&copy; 2014 mydailyfit</span><a class="rt t-w" href="#">Help</a>
+                        <a class="t-w rt" href="#">About</a> <a class="rt t-w" href="#">Privacy Policy</a>
+                        <a class="rt t-w" href="#">Terms</a> <a class="rt t-w" href="#">Cookies</a> <a class="rt t-w" href="#">Advertisers</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="{% static 'bootstrap/js/jquery.min.js' %}"></script>
+<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/ajax.js' %}"></script>
+</body>
+</html>

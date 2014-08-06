@@ -1,0 +1,12 @@
+.navbar-default {
+    background-color: #48a9e7;
+    box-shadow: none;
+    border: none;
+}
+
+.lg-box {
+    box-shadow: 0px 0px 10px 1px #e4e4e4;
+    border: solid 2px #ddd;
+    padding: 2%;
+    border-radius: 5px;
+}

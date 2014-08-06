@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+        {% load static from staticfiles %}
+<html>
+<head>
+    <title>{{ c_name }}</title>
+    <link href="{% static 'bootstrap/css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap/css/sticky.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap/css/cover.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
+</head>
+<body>
+
+<div class="site-wrapper">
+
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+          <div class="masthead clearfix">
+            <div class="inner">
+              <h1 class="cover-heading spacer" id="logo">mydailyFIT</h1>
+            </div>
+          </div>
+
+          <div class="inner cover">
+            <h1 class="cover-heading">Real personal trainers just a click away.</h1>
+              <p class="cover-heading">Follow us on <a href="#">Twitter</a> and <a href="#">Instagram</a></p>
+              {% if messages %}
+                {% for message in messages %}
+                     {{ message|striptags|title|linebreaks }}
+                {% endfor %}
+              {% endif %}
+              <h6>{{ success }}</h6>
+              <form action="{% url 'home:index' %}" method="POST" class="force-center">
+                {% csrf_token %}
+                {% for field in new_form %}
+                    {{ field }}
+                {% endfor %}
+                <button class="btn btn-primary btn-lg btn-block" type="submit" style="font-weight: normal;">Get Updates!</button>
+              </form>
+          </div>
+
+          <div class="mastfoot">
+            <div class="inner">
+              <p style="color: #fff;">&copy; {{ c_name }} {{ year }}</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/tt.js' %}"></script>
+</body>
+</html>

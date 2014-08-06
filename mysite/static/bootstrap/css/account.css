@@ -1,0 +1,33 @@
+body {
+    background-color: #fff;
+}
+
+.settings-tab {
+    background-color: #ebebeb;
+    position: absolute;
+    z-index: 100;
+    height: 100% !important;
+}
+
+.container-fluid {
+    padding: 0 !important;
+}
+
+.tab-link {
+    padding-top: 15%;
+}
+
+.tab-link>a:hover {
+    text-decoration: none;
+}
+
+.or-link {
+    color: #e8ac21;
+    transition: all .3s;
+}
+
+.or-link:hover {
+    color: #e29e00;
+    text-decoration: underline;
+    transition: all .3s;
+}

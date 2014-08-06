@@ -1,0 +1,15 @@
+.t-block {
+  position: relative;
+  min-height: 1px;
+  margin-left: 2.5%;
+  float: left;
+}
+
+@media (min-width: 992px) {
+  .t-block {
+    float: left;
+  }
+  .t-block {
+  	width: 30% !important;
+  }
+}

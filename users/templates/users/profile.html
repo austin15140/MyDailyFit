@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+        {% load static from staticfiles %}
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>{{ user.first_name }} {{ user.last_name }}</title>
+    <link href="{% static 'bootstrap/css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap/css/navbar.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap/css/f_p.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap/css/profile.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap/css/override.css' %}" rel="stylesheet">
+    <link rel="shortcut icon" href="{% static 'inc/favicon/favicon-64.png' %}">
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="container">
+            <button type="button" class="navbar-toggle m-t-px" data-toggle="collapse" data-target="#menucollapse">
+                <span class="sr-only">Toggle Menu</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/users"><h4 class="navbar-brand" id="logo">mydailyfit</h4></a>
+            <div class="collapse navbar-collapse" id="menucollapse">
+                <ul class="nav navbar-nav navbar-right nav-links">
+                    <li><p><a href="{% url 'users:account' user.username %}" class="t-w-t">My Account</a></p></li>
+                    <li><p><a href="#" class="t-w-t">Messages</a></p></li>
+                    <li><p><a href="#" class="t-w-t">Help</a></p></li>
+                </ul>
+                <form action="{% url 'users:browse' %}" class="navbar-form navbar-right nav-srch" role="search">
+                    <input type="search" class="form-control" placeholder="Find your trainer">
+                    <button type="submit" class="btn btn-default rl">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="row center-block prof-bg" {% if not userprofile.bg_img %} style="background: linear-gradient(to bottom, #666, #333);" {% elif userprofile.bg_img %}
+                                            style="background: url('{{ userprofile.bg_img.url }}') center" {% endif %}>
+        <div class="container spacer p-b-50">
+            <div class="col-md-2">
+                <img class="img-responsive prof-pic" src="{% static 'inc/icon.jpg' %}" alt="{{ userprofile.photo_name }}">
+            </div>
+            <div class="col-md-6">
+                <h1 class="text-center u-name rm">{{ user.first_name }} {{ user.last_name }}</h1>
+                <h4 class="text-center u-loc rm"><span class="glyphicon glyphicon-globe"></span><span class="p-l-5-p">Charlotte, NC</span></h4>
+                <a href="#" class="u-troph">
+                    <p class="text-center">
+                        <img class="trophy-prof" src="{% static 'inc/award.png' %}"><span class="m-l-2">5</span>
+                    </p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row center-block tgln">
+        <h3 class="rl text-center">"{{ userprofile.tagline }}"</h3>
+    </div>
+
+    <div class="row center-block main-cont">
+        <div class="container">
+            <div class="col-md-7 m-t-2">
+                <div class="wrapper">
+                    <div class="feed" id="feed">
+                        <div class="header">
+                            <h5 class="fd-tgln rm"><a href="#" id="activity">Activity</a><a href="#" id="track" class="p-l-5-p">Fit Track</a>
+                                <a href="#" id="progress" class="p-l-5-p">Progress</a></h5>
+                        </div>
+                        <div id="ac-feed">
+                            <div class="ac-block">
+                                <p class="activ rl"><span class="rm ac-ts">01/20/14</span>lorem ipsum dorem uane suenma zoem uae loei ioep lorem ipsum dorem uane suenma zoem uae loei ioep lorem ipsum dorem uane suenma zoem uae loei ioep</p>
+                            </div>
+                            <div class="ac-block">
+                                <p class="activ rl"><span class="rm ac-ts">01/20/14</span>lorem ipsum dorem uane suenma zoem uae loei ioep</p>
+                            </div>
+                            <div class="ac-block">
+                                <p class="activ rl"><span class="rm ac-ts">01/20/14</span>lorem ipsum dorem uane suenma zoem uae loei ioep</p>
+                            </div>
+                            <div class="ac-block">
+                                <p class="activ rl"><span class="rm ac-ts">01/20/14</span>lorem ipsum dorem uane suenma zoem uae loei ioep</p>
+                            </div>
+                            <div class="ac-block">
+                                <p class="activ rl"><span class="rm ac-ts">01/20/14</span>lorem ipsum dorem uane suenma zoem uae loei ioep</p>
+                            </div>
+                        </div>
+                        <div id="tr-feed">
+                            <div class="ac-block">
+                                <p class="activ rl"><span class="rm ac-ts">01/20/14</span>lorem ipsum dorem uane suenma zoem uae loei ioep</p>
+                            </div>
+                            <div class="ac-block">
+                                <p class="activ rl"><span class="rm ac-ts">01/20/14</span>lorem ipsum dorem uane suenma zoem uae loei ioep</p>
+                            </div>
+                            <div class="ac-block">
+                                <p class="activ rl"><span class="rm ac-ts">01/20/14</span>lorem ipsum dorem uane suenma zoem uae loei ioep</p>
+                            </div>
+                            <div class="ac-block">
+                                <p class="activ rl"><span class="rm ac-ts">01/20/14</span>lorem ipsum dorem uane suenma zoem uae loei ioep</p>
+                            </div>
+                            <div class="ac-block">
+                                <p class="activ rl"><span class="rm ac-ts">01/20/14</span>lorem ipsum dorem uane suenma zoem uae loei ioep</p>
+                            </div>
+                        </div>
+                        <div id="prog-feed">
+                            <div>
+                                <h4 class="text-center label-txt rl rot m-t-10">Body Weight</h4>
+                            </div>
+                            <canvas id="canvas">
+                            </canvas>
+                            <div>
+                                <h4 class="text-center rl">Check-in Date</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-md-offset-1 m-t-2">
+                <div class="goals">
+                    <div class="go-hdr">
+                        <h5 class="text-center go-tgln rm">Current Goals</h5>
+                    </div>
+                    <div class="table-responsive center-block">
+                        <table class="table">
+                            <tr class="success">
+                                <td class="text-center">Increase my bench by 20 pounds</td>
+                            </tr>
+                            <tr class="success">
+                                <td class="text-center">Increase my squat to 315 for reps</td>
+                            </tr>
+                            <tr class="success">
+                                <td class="text-center">Lorem ipsum dorem empu kaem</td>
+                            </tr>
+                            <tr class="success">
+                                <td class="text-center">Lorem ipsum dorem empu kaem</td>
+                            </tr>
+                            <tr class="success">
+                                <td class="text-center">Lorem ipsum dorem empu kaem</td>
+                            </tr>
+                            <tr class="success">
+                                <td class="text-center">Lorem ipsum dorem empu kaem</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="trophies">
+                    <div class="go-hdr">
+                        <h5 class="text-center go-tgln rm">Recent Trophies</h5>
+                    </div>
+                    <div class="table-responsive center-block">
+                        <table class="table">
+                            <tr class="trophy">
+                                <td><img src="{% static 'inc/award.png' %}" class="trophy-prof"> <span class="rm t-bl-s p-l-20-p">Lost 10 pounds</span></span></td>
+                            </tr>
+                            <tr class="trophy">
+                                <td><img src="{% static 'inc/award.png' %}" class="trophy-prof"> <span class="rm t-bl-s p-l-20-p">Lost 20 pounds</span></td>
+                            </tr>
+                            <tr class="trophy">
+                                <td><img src="{% static 'inc/award.png' %}" class="trophy-prof"> <span class="rm t-bl-s p-l-20-p">Dropped to 12% body fat</span></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<script src="{% static 'bootstrap/js/jquery.min.js' %}"></script>
+<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/Chart.js' %}"></script>
+<script type="text/javascript">
+        var users = {{ all_users|safe }};
+        var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
+		var lineChartData = {
+			labels : ["01/20/2014", "02/15/2014", "02/25/2014","03/5/2014","03/12/2014","03/26/2014","04/01/2014"],
+			datasets : [
+				{
+					label: "My First dataset",
+					fillColor : "rgba(142,227,154,.4)",
+					strokeColor : "rgba(226,158,0,1)",
+					pointColor : "rgba(226,158,0,1)",
+					pointStrokeColor : "#fff",
+					pointHighlightFill : "#fff",
+					pointHighlightStroke : "rgba(8,97,66,.9)",
+					data : ["200", "195", "190", "188", "185", "181", "180"]
+				}
+			]
+		}
+        init = function() {
+            var ctx = document.getElementById("canvas").getContext("2d");
+		    window.myLine = new Chart(ctx).Line(lineChartData, {
+			    responsive: true,
+			    scaleShowGridLines: false,
+		});
+        }
+
+        $('#activity').css('color', 'rgba(0,0,0,1)');
+        $('#track').addClass('txt-light-blue')
+        $('#progress').addClass('txt-light-blue');
+        $('#tr-feed').hide();
+        $('#prog-feed').hide();
+
+        $('#track').click(function(){
+            $('#track').removeClass('txt-light-blue');
+            $('#track').css('color', 'rgba(0,0,0,1)');
+            $('#activity').addClass('txt-light-blue');
+            $('#progress').addClass('txt-light-blue');
+            $('#ac-feed').hide();
+            $('#prog-feed').hide();
+            $('#tr-feed').slideDown('slow');
+        });
+
+        $('#activity').click(function(){
+            $('#activity').removeClass('txt-light-blue');
+            $('#activity').css('color', 'rgba(0,0,0,1)');
+            $('#progress').addClass('txt-light-blue');
+            $('#track').addClass('txt-light-blue');
+            $('#tr-feed').hide();
+            $('#prog-feed').hide();
+            $('#ac-feed').slideDown('slow');
+        });
+
+        $('#progress').click(function(){
+            $('#progress').removeClass('txt-light-blue');
+            $('#progress').css('color', 'rgba(0,0,0,1)');
+            $('#track').addClass('txt-light-blue');
+            $('#activity').addClass('txt-light-blue');
+            $('#ac-feed').hide();
+            $('#tr-feed').hide();
+            $('#prog-feed').slideDown('slow');
+            init();
+        });
+</script>
+</body>
+</html>

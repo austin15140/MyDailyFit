@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+{% load static from staticfiles %}
+<html>
+<head>
+    <title></title>
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap/css/sticky.css' %}" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+    {% if pollform.errors %}
+        <div class="row">
+            <div class="col-md-4">
+                {{ pollform.error }}
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="row">
+        <div class="col-md-4">
+            <h4>Poll Form:</h4>
+            <form action="{% url 'polls:index' %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ pollform.as_p }}
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+
+        <div class="col-md-4">
+            <h4>Choice Form:</h4>
+            <form action="{% url 'polls:index' %}" method="POST">
+                {% csrf_token %}
+                {{ choiceform.as_p }}
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+
+    <hr>
+
+
+    <div class="row">
+         {% if latest_poll_list %}
+        <div class="col-md-4">
+            <h3>Polls:</h3>
+            <ul>
+                {% for poll in latest_poll_list %}
+                    <li><a style="text-decoration: none;" href="{% url 'polls:detail' poll.id %}">{{ poll.question }}</a> -
+                        <button><a style="text-decoration: none; color: black;" href="{% url 'polls:delete' poll.id %}">Delete</a></button></li>
+                {% endfor %}
+            </ul>
+
+    {% else %}
+        <h3>No polls are available.</h3>
+    {% endif %}
+        </div>
+    </div>
+
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+</html>

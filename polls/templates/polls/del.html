@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+    <form action="{% url 'polls:delete' d %}" method="POST">
+        {% csrf_token %}
+        {% for field in delform %}
+            {{ field }}
+        {% endfor %}
+        <input type="submit" value="Delete">
+    </form>
+
+</body>
+</html>

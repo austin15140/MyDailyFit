@@ -1,0 +1,102 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /*margin-bottom: 50px;*/
+    /*font-family: 'Helvetica';*/
+    padding-top: 100px;
+    background-color: #FFF;
+    background-image: none;
+    margin-bottom: -50px;
+}
+
+.navbar-default {
+    background: -webkit-linear-gradient(top, #73a9ff, #428bca);
+    border-bottom: solid 1px #0041aa;
+}
+
+#logo {
+    font-family: 'RussoOne-Regular';
+}
+
+.force-center {
+    width: 50%;
+    display: block;
+    margin: 0 auto;
+}
+
+.t-0 {
+  width: 30%;
+}
+
+.full {
+  width: 100%;
+}
+
+.p-b-20 {
+    padding-bottom: 20px;
+}
+
+.p-b-40 {
+    padding-bottom: 40px;
+}
+
+.tag {
+    margin: 0 auto;
+}
+
+.spacer {
+    margin-top: 80px;
+}
+
+.spacer-2 {
+    margin-top: 20px;
+}
+
+.box {
+    background: rgba(0, 0, 0, .5);
+    border-radius: 5px;
+}
+
+.tooltip.right .tooltip-inner {
+    background-color: #428bca;
+}
+
+.tooltip.right .tooltip-arrow {
+    border-right-color: #428bca;
+}
+
+img.bg {
+    position: fixed;
+    z-index: -1;
+    min-height: 100%;
+    min-width: 100%;
+    top: 0;
+    left: 0;
+}
+
+#footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    padding-top: 20px;
+    height: 50px;
+}
+
+@font-face {
+  font-family: 'Sansation Regular';
+  src: url('../fonts/Sansation_Regular.ttf');
+}
+
+@font-face {
+  font-family: 'RussoOne-Regular';
+  src: url('../fonts/RussoOne-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Sansation Light';
+
+  src: url('../fonts/Sansation_Light.ttf');
+}

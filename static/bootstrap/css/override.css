@@ -1,0 +1,31 @@
+.t-block {
+  position: relative;
+  min-height: 1px;
+  margin-left: 2.5%;
+  float: left;
+}
+
+.no-pad-l {
+    padding-left: 0 !important;
+}
+
+.no-pad-r {
+    padding-right: 0 !important;
+}
+
+.no-pad-b {
+    padding-bottom: 0 !important;
+}
+
+.no-pad-t {
+    padding-top: 0 !important;
+}
+
+@media (min-width: 992px) {
+  .t-block {
+    float: left;
+  }
+  .t-block {
+  	width: 30% !important;
+  }
+}

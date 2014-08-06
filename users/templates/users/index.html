@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+        {% load static from staticfiles %}
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Online Personal Training | mydailyfit</title>
+    <link href="{% static 'bootstrap/css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap/css/signup.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap/css/navbar.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap/css/f_p.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap/css/override.css' %}" rel="stylesheet">
+    <link rel="shortcut icon" href="{% static 'inc/favicon/favicon-64.png' %}">
+</head>
+<body>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title c-black" id="myModalLabel">Login</h4>
+                </div>
+                <div class="modal-body">
+                    <form method="post" action="{% url 'users:u_login' %}" class="lgn-form" role="form">
+                        {% csrf_token %}
+                        {% for field in login_form %}
+                            {{ field }}
+                        {% endfor %}
+                        <button type="submit" class="m-t-5 center-block btn btn-lg btn-block btn-primary">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title c-black text-center" id="signupModalLabel">Sign Up - It's Free!</h4>
+                    <p class="text-center">Are you a personal trainer? Sign up <a class="t-gr" href="{% url 'users:pt' %}">here</a></p>
+                </div>
+                <div class="modal-body">
+                    <form method="post" action="{% url 'users:new_user' %}" class="lgn-form" role="form">
+                        {% csrf_token %}
+                        {% for field in new_user %}
+                            {{ field }}
+                        {% endfor %}
+                        <button type="submit" class="m-t-5 center-block btn btn-lg btn-block btn-primary">Sign Up</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <button type="button" class="navbar-toggle m-t-2" data-toggle="collapse" data-target="#menucollapse">
+                <span class="sr-only">Toggle Menu</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+                <a href="/users"><h4 class="navbar-brand" id="logo">mydailyfit</h4></a>
+                <div class="collapse navbar-collapse" id="menucollapse">
+                    <ul class="nav navbar-nav navbar-right p-t-10">
+                        <li><h4><a href="#myModal" class="t-w-t" data-toggle="modal" type="button" role="button">Login</a></h4></li>
+                        <li><h4><a href="#signupModal" class="t-w-t" data-toggle="modal" type="button" role="button">Signup</a></h4></li>
+                        <li><h4><a href="{% url 'users:pt' %}" class="i-btn-txt"><button class="i-btn">BECOME A PERSONAL TRAINER</button></a></h4></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    <div class="row center-block pt-block">
+        <div class="container init-txt">
+            <div class="col-md-8 col-md-offset-1">
+                <h1 class="spcl-lg rm">Find a personal trainer.</h1>
+                <h3 class="rl">Real results from real personal trainers at an affordable cost.</h3>
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="pull-left p-r-5-p">
+                            <span class="glyphicon glyphicon-remove t-dnger"></span>
+                        </div>
+                        <h1 class="spcl-m-s-thin">{{ message|striptags|linebreaks }}</h1>
+                    {% endfor %}
+                {% endif %}
+                <form action="{% url 'users:index' %}" method="post" class="form-inline c-form" role="form">
+                    {% csrf_token %}
+                    {% for field in search_form %}
+                        {{ field }}
+                    {% endfor %}
+                    <button type="submit" class="btn btn-default rl">Search</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="row center-block r-wh">
+        <div class="container-fluid p-t-25">
+            <h1 class="text-center spcl-lg-thin rl p-b-15">Find your personal trainer. Improve your health.</h1>
+            <h1 class="text-center spcl-md-thin rl p-b-80">No matter what you want to do with your body, our trainers can help.</h1>
+            <img class="img-responsive center-block" src="{% static 'inc/heart.png' %}">
+        </div>
+    </div>
+    <div class="row center-block spacer">
+        <div class="container-fluid">
+            <div class="row bg-photo-r p-b-80">
+                <div class="col-md-6 spacer p-b-40 col-md-offset-1">
+                    <h1 class="rm w-t-sh spcl-lg spacer">TRANSFORM YOUR BODY</h1>
+                    <h1 class="rt w-t-sh spcl-md p-t-15 p-b-80">Whether you're trying to lose weight, gain muscle, or put on weight, we've got a personal trainer that can help you. Simply browse through our comprehensive list of personal trainers and choose who
+                     the best fit is for you.</h1>
+                    <h1><a href="#signupModal" class="i-btn-txt" data-toggle="modal" type="button" role="button"><button class="i-btn">SIGNUP</button></a></h1>
+                </div>
+            </div>
+            <div class="row r-wh">
+                <div class="container-fluid p-b-80 p-t-25">
+                    <h1 class="text-center spcl-lg-thin rl p-b-15">Get motivated. Track your progress.</h1>
+                    <h1 class="text-center spcl-md-thin rl p-b-80">Our tracking tools show your progress in a way so that you can see where you need to focus on more to reach your goal.</h1>
+                    <img class="img-responsive center-block" src="{% static 'inc/charts.png' %}">
+                </div>
+            </div>
+            <div class="row r-oa p-b-80">
+                <div class="col-md-5 spacer p-b-80 col-md-offset-6">
+                    <h1 class="rm w-t-sh spcl-lg spacer">SMASH YOUR DIET</h1>
+                    <h1 class="rt w-t-sh spcl-md p-t-15 p-b-80">With custom meal plans catered to your body, you don't have to rely on hard to
+                    maintain diets. Our trainers will provide you with a diet designed for you to reach your goals.</h1>
+                    <h1><a href="#signupModal" class="i-btn-txt" data-toggle="modal" type="button" role="button"><button class="i-btn">SIGNUP</button></a></h1>
+                </div>
+            </div>
+            <div class="row r-wh">
+                <div class="container-fluid p-b-80 p-t-25">
+                    <h1 class="text-center spcl-lg-thin rl p-b-15">Get rewarded for being healthy.</h1>
+                    <h1 class="text-center spcl-md-thin rl p-b-80">Earn trophies for staying on track and completing various fitness challenges.</h1>
+                    <img class="img-responsive center-block" src="{% static 'inc/award.png' %}">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row center-block r-ru1">
+        <div class="row center-block t-w-s">
+            <div class="container-fluid p-b-80">
+                <div class="col-md-6 spacer p-b-80 col-md-offset-1">
+                    <h1 class="w-t-sh rm spcl-lg spacer">HAVE FUN WITH IT</h1>
+                    <h1 class="rt p-t-15 p-b-80 spcl-md">Reaching your fitness goals is no longer a tedious task. With our trophy system, we
+                    turned something that is usually thought of as being hard to achieve into a fun game! So, what are you waiting for?</h1>
+                    <h1><a href="#signupModal" class="i-btn-txt" data-toggle="modal" type="button" role="button"><button class="i-btn">SIGNUP</button></a></h1>
+                </div>
+            </div>
+                <div id="footer">
+                    <p class="text-center"><span class="copy ro">&copy; 2014 mydailyfit</span><a class="rt t-w" href="#">Help</a>
+                        <a class="t-w rt" href="#">About</a> <a class="rt t-w" href="#">Privacy Policy</a>
+                        <a class="rt t-w" href="#">Terms</a> <a class="rt t-w" href="#">Cookies</a> <a class="rt t-w" href="#">Advertisers</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="{% static 'bootstrap/js/jquery.min.js' %}"></script>
+<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/ajax.js' %}"></script>
+</body>
+</html>

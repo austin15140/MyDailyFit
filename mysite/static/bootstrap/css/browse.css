@@ -1,0 +1,44 @@
+* {
+    font-family: "Arial";
+}
+
+body {
+    background-color: #fff;
+    color: #000;
+}
+
+.navbar-default {
+    background-color: rgba(8,97,66,1);
+    box-shadow: 1px 1px 4px rgba(30,30,30,1);
+    border: none;
+}
+
+.advert {
+    height: 100px;
+    border-radius: 5px;
+    border: 2px solid #e29e00;
+}
+
+.filter {
+    border-radius: 5px;
+    border: 2px solid rgba(32,143,124,.5);
+    box-shadow: 1px 2px 4px #d7d7d7;
+}
+
+.results {
+    margin-bottom: 1%;
+    border-radius: 5px;
+    border: 2px solid #e29e00;
+}
+
+.p-img {
+    height: 10em;
+    background: url('../../inc/mike.jpg') top;
+    background-size: cover;
+    border-radius: 50px;
+    border: 2px solid #e29e00;
+}
+
+.divider {
+    border: solid 1px #d7d7d7;
+}

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+        {% load static from staticfiles %}
+<html>
+<head>
+    <title>My Company | {{ user.first_name }} {{ user.last_name }}</title>
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap/css/sticky.css' %}" rel="stylesheet">
+    <link href="{% static 'css/video-js.less' %}" rel="stylesheet/less">
+    <script src="{% static 'js/video.js' %}"></script>
+    <script>
+        videojs.options.flash.swf = "{% static 'inc/video-js.swf' %}"
+    </script>
+</head>
+<body style="margin-bottom: 50px;">
+
+
+
+<div class="jumbotron">
+    <div class="container">
+        <h1>Hi, {{ user.first_name }} {{ user.last_name }}!</h1>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <h2>User Info:</h2>
+            <h4>Username:</h4>
+            {{ user.username }}
+            <h4>Name:</h4>
+            {{ user.first_name }} {{ user.last_name }}
+            <hr>
+            <h4>User Email:</h4>
+            {{ user.email }}
+            <h4>User Password:</h4>
+            {{ user.password|slice:":20" }}<b>...</b>
+            <h4>User Description:</h4>
+            {{ userprofile.description|linebreaks }}
+        </div>
+        {% if userprofile.photo != 'False' and userprofile.photo %}
+        <div class="col-md-4">
+            <h2>User Image:</h2>
+            <h4><a href="{{ userprofile.photo.url }}">Download</a></h4>
+            <img class="img-responsive" src="{{ userprofile.photo.url }}" alt="{{ userprofile.photo_name }}">
+        </div>
+        {% else %}
+        <div class="col-md-4">
+            <h2>User Photo:</h2>
+            <h4>No Photo</h4>
+        </div>
+        {% endif %}
+        {% if userprofile.video != 'False' and userprofile.video %}
+        <div class="col-md-4">
+            <h2>User Video:</h2>
+            <h4><a href="{{ userprofile.video.url }}">Download</a> or <a href="{% url 'users:del_video' user.id %}">Delete</a></h4>
+            <video id="example1" class="video-js vjs-default-skin flex-video widescreen" controls
+                    preload="auto" data-setup='{}'>
+                {% if userprofile.get_v_extension == '.mp4' %}
+                    <source src="{{ userprofile.video.url }}" type="video/mp4">
+                {% elif userprofile.get_v_extension == '.webm' %}
+                    <source src="{{ userprofile.video.url }}" type="video/webm">
+                {% elif userprofile.get_v_extension == '.ogg' %}
+                    <source src="{{ userprofile.video.url }}" type="video/ogg">
+                {% endif %}
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        {% else %}
+            <div class="col-md-4">
+                <h2>User Video:</h2>
+                <h4>No Video</h4>
+            </div>
+        {% endif %}
+        {% if userprofile.rand_file != 'False' and userprofile.rand_file %}
+        <div class="col-md-4">
+            <h2>User File:</h2>
+            <h4>Download:</h4>
+            <h4><a href="{{ userprofile.rand_file.url }}">{{ userprofile.rand_file.name }}</a></h4>
+        </div>
+        {% else %}
+        <div class="col-md-2">
+            <h2>User File:</h2>
+            <h4>No Rand File</h4>
+        </div>
+        {% endif %}
+        <div class="col-md-2">
+            <h2>Extra Files:</h2>
+            {% for el in file %}
+            <h4><a href="{{ MEDIA_URL }}{{ el.file }}">{{ el.file.name }}</a></h4>
+            <img src="{{ MEDIA_URL }}{{ el.file }}" class="img-responsive" />
+            {% endfor %}
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-md-4">
+            <h4>Update User:</h4>
+            {% if userform.errors %}
+                <h6>{{ userform.errors }}</h6>
+            {% endif %}
+            {% if messages %}
+                {% for message in messages %}
+                    <h5>{{ message }}</h5>
+                {% endfor %}
+            {% endif %}
+            <form action="{% url 'users:detail' user.id %}" method="post" enctype="multipart/form-data" data-ajax="false">
+                {% csrf_token %}
+                {{ userform.as_p }}
+                <input type="submit" value="Update">
+            </form>
+        </div>
+        <div class="col-md-4">
+            <h4>Add Extra Files:</h4>
+            <form action="{% url 'users:detail' user.id %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ fileform.as_p }}
+                <input type="submit" value="Add">
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<div id="footer">
+    <div class="container">
+        <p>&copy; <b>{{ user.first_name }} {{ user.last_name }}</b> {{ year }}</p>
+    </div>
+</div>
+
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/less.js' %}"></script>
+</body>
+</html>

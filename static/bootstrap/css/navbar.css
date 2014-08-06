@@ -1,0 +1,83 @@
+.navbar-default {
+    background-color: rgba(60,179,255,.7);
+    box-shadow: none;
+    border: none;
+}
+
+.navbar-default .navbar-collapse {
+    border-color: rgba(2,104,86,1);
+}
+
+.navbar {
+    margin-bottom: 0;
+}
+
+.nav-links {
+    margin-top: 22px;
+    padding-left: 2%;
+}
+
+.nav-srch {
+    padding-top: 8px;
+}
+
+.navbar-brand {
+    font-size: 2em;
+}
+
+.navbar-default .navbar-toggle {
+    transition: all .3s;
+    border-color: #d59502;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #fff;
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border: none !important;
+}
+
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #e8ac21;
+  transition: all .3s;
+}
+
+#logo {
+    font-family: 'RussoOne-Regular';
+    color: #fff;
+    /*text-shadow: 1px 2px 3px #333;*/
+    text-shadow: none !important;
+    margin-top: 5px;
+}
+
+@font-face {
+  font-family: 'RussoOne-Regular';
+  src: url('../fonts/RussoOne-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Sansation_Light';
+    src: url('../fonts/Sansation_Light.ttf');
+}
+
+@font-face {
+    font-family: 'Sansation Regular':
+    src: url('../fonts/Sansation_Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Roboto-Medium';
+    src: url('../fonts/Roboto-Medium.ttf');
+}
+
+@font-face {
+    font-family: 'Roboto-Light';
+    src: url('../fonts/Roboto-Light.ttf');
+}
+
+@font-face {
+    font-family: 'Roboto-Thin';
+    src: url('../fonts/Roboto-Thin.ttf');
+}

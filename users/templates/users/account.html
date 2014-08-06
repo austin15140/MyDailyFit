@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+        {% load static from staticfiles %}
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>{{ user.first_name }} {{ user.last_name }}</title>
+    <link href="{% static 'bootstrap/css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap/css/navbar.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap/css/f_p.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap/css/profile.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap/css/account.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap/css/override.css' %}" rel="stylesheet">
+    <link rel="shortcut icon" href="{% static 'inc/favicon/favicon-64.png' %}">
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="container">
+            <button type="button" class="navbar-toggle m-t-px" data-toggle="collapse" data-target="#menucollapse">
+                <span class="sr-only">Toggle Menu</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/users"><h4 class="navbar-brand" id="logo">mydailyfit</h4></a>
+            <div class="collapse navbar-collapse" id="menucollapse">
+                <ul class="nav navbar-nav navbar-right nav-links">
+                    <li><p><a href="{% url 'users:detail' user.username %}" class="t-w-t">My Profile</a></p></li>
+                    <li><p><a href="#" class="t-w-t">Messages</a></p></li>
+                    <li><p><a href="#" class="t-w-t">Help</a></p></li>
+                </ul>
+                <form action="{% url 'users:browse' %}" class="navbar-form navbar-right nav-srch" role="search">
+                    <input type="search" class="form-control" placeholder="Find your trainer">
+                    <button type="submit" class="btn btn-default rl">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="row center-block">
+        <div class="container-fluid">
+            <div class="col-md-2 settings-tab">
+                <h4 class="rl tab-link"><a class="link" id="user-settings-link" href="">User Settings</a></h4>
+                <h4 class="rl tab-link"><a class="link" id="meal-plan-link" href="">Meal Plan</a></h4>
+                <h4 class="rl tab-link"><a class="link" id="workout-plan-link" href="">Workout Plan</a></h4>
+                <h4 class="rl tab-link"><a class="link" id="trophies-link" href="">Trophies</a></h4>
+                <h4 class="rl tab-link"><a class="link" id="my-trainer-link" href="">My Trainer</a></h4>
+            </div>
+            <div class="col-md-10 col-md-offset-2">
+                <h1 class="text-center rm">Account Settings</h1>
+            </div>
+            <div class="row center-block">
+                <div class="container-fluid">
+                    <div class="col-md-10 col-md-offset-2">
+                        <div class="col-md-7 col-md-offset-2 setting">
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <div class="pull-left p-r-5-p">
+                                        <span class="glyphicon glyphicon-remove t-dnger"></span>
+                                    </div>
+                                    <h1 class="spcl-m-s-thin">{{ message|striptags|linebreaks }}</h1>
+                                {% endfor %}
+                            {% endif %}
+                            {% if userinfo.errors %}
+                                {{ userinfo.errors }}
+                            {% endif %}
+                            <div id="user-settings">
+                                <form method="POST" action="{% url 'users:account' user.username %}" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <div class="fake-input m-t-5">
+                                        <div class="fake-label">
+                                            <h5 class="rl">Profile Image:</h5>
+                                        </div>
+                                        <a href="" id="fb-1" class="txt-light-blue">Choose a new image</a>
+                                        <!--<button type="button" id="fb-1" class="file-btn btn-file">Upload an image</button>-->
+                                        <p class="upload-file" id="filename1">No file chosen.</p>
+                                    </div>
+                                    {{ userinfo.prof_img }}
+                                    <div class="fake-input">
+                                        <div class="fake-label">
+                                            <h5 class="rl">Background Image:</h5>
+                                        </div>
+                                        <a href="" id="fb-2" class="txt-light-blue">Choose a new image</a>
+                                    <!--<button type="button" id="fb-2" class="file-btn btn-file2">Upload an image</button>-->
+                                        <p class="upload-file" id="filename2">No file chosen.</p>
+                                    </div>
+                                    {{ userinfo.bg_img }}
+                                    <div class="row center-block m-t-2">
+                                        <div class="col-md-6 no-pad-l">
+                                            <h5 class="rl pull-left">Age:</h5>
+                                            <span class="pull-right">{{ userinfo.age }}</span>
+                                        </div>
+                                        <div class="col-md-6 no-pad-l no-pad-r">
+                                            <h5 class="rl pull-left">Weight:</h5>
+                                            <span class="pull-right">{{ userinfo.weight }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="fake-label">
+                                        <h5 class="rl">Tagline:</h5>
+                                    </div>
+                                    {{ userinfo.tagline }}
+                                    <div class="fake-label">
+                                        <h5 class="rl">Location:</h5>
+                                    </div>
+                                    {{ userinfo.location }}
+                                    <input type="submit" class="form-control btn btn-submit m-t-2" value="Save Changes">
+                                </form>
+                            </div>
+                            <div id="meal-plan"></div>
+                            <div id="workout-plan"></div>
+                            <div id="trophies"></div>
+                            <div id="my-trainer"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="{% static 'bootstrap/js/jquery.min.js' %}"></script>
+<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/account.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <h1>{{ poll.question }}</h1>
+
+    {% if poll.extension != '.mp4' %}
+        <img src="{{ poll.image.url }}" alt="img" />
+    {% else %}
+        <video width="320" height="240" controls>
+            <source src="{{ poll.image.url }}" type="video/mp4">
+        </video>
+    {% endif %}
+
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+    <form action="{% url 'polls:vote' poll.id %}" method="POST">
+        {% csrf_token %}
+        {% for choice in poll.choice_set.all %}
+            <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
+            <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br />
+        {% endfor %}
+            {{ poll.comments }}<br />
+        <input type="submit" value="Vote" />
+    </form>
+
+</body>
+</html>

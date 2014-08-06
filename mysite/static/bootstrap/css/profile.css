@@ -1,0 +1,215 @@
+body {
+    padding-bottom: 5%;
+    background-color: #fff;
+}
+
+.navbar-default {
+    background-color: rgba(8,97,66,.9);
+    box-shadow: 1px 1px 4px rgba(30,30,30,1);
+    border: none;
+}
+
+.header>.fd-tgln>a:hover {
+    text-decoration: none !important;
+}
+
+#canvas {
+    width: 83% !important;
+}
+
+.label {
+    display: block;
+}
+
+.label-txt {
+    width: 17%;
+    margin-top: 20%;
+    margin-bottom: 0 !important;
+    float: left;
+}
+
+.rot {
+    display: inline-block;
+    transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+}
+
+.table {
+    width: 100%;
+    margin: 0 !important;
+}
+
+.u-name {
+    color: #fff;
+    text-shadow: 1px 2px 3px #000;
+    margin-top: 5%;
+    margin-left: 35%;
+    font-size: 3em;
+}
+
+.trophy-prof {
+    height: auto;
+    width: 8%;
+}
+
+.tgln {
+    background-color: #fff;
+    border-bottom: solid 1px rgba(8,97,66,.4);
+    box-shadow: 1px 1px 4px rgba(8,97,66,.3);
+    padding: 1%;
+    padding-bottom: .7%;
+    padding-top: 0;
+    color: #000;
+}
+
+.header {
+    border: solid 1px #ddd;
+    margin-bottom: .3%;
+    background-color: #fff;
+}
+
+.fd-tgln {
+    color: #000 !important;
+    padding-left: 5%;
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+.wrapper {
+    border-radius: 5px;
+}
+
+.feed {
+    border-radius: 5px;
+    border: none;
+}
+
+.ac-block {
+    border: solid 1px #ddd;
+    background-color: #fff;
+    margin-top: .1%;
+    margin-bottom: .3%;
+    padding: 1%;
+    /*box-shadow: 1px 1px 4px #ddd;*/
+    transition: all .3s;
+}
+
+.ac-block:hover {
+    border-color: #e8ac21;
+    transition: all .3s;
+}
+
+#prog-feed {
+    border: solid 1px #ddd;
+    background-color: #fff;
+    margin-top: .1%;
+    margin-bottom: .3%;
+    padding: 2%;
+}
+
+.ac-ts {
+    float: left !important;
+    margin-left: 2%;
+    margin-top: 1%;
+    font-size: .7em;
+    border-bottom: solid 1px #ddd;
+}
+
+.activ {
+    text-align: center;
+    padding-top: 1.2%;
+    font-size: 1.3em;
+    color: #000;
+}
+
+.goals {
+    background-color: #fff;
+    border: solid 1px #ddd;
+}
+
+.go-hdr {
+    background-color: #fff;
+    padding-top: 1%;
+}
+
+.go-tgln {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #000;
+}
+
+.trophies {
+    border: solid 1px #ddd;
+    background-color: #fff;
+    margin-top: 4%;
+}
+
+.u-troph {
+    color: #fff;
+    text-shadow: 1px 2px 3px #000;
+    transition: all .3s;
+}
+
+.u-troph:hover {
+    color: #e29e00;
+    text-decoration: none;
+    transition: all .3s;
+}
+
+.u-loc {
+    color: #fff;
+    text-shadow: 1px 2px 3px #000;
+}
+
+.prof-bg {
+    background-size: cover !important;
+    box-shadow: 0px 2px 4px rgba(30,30,30,1);
+}
+
+.prof-pic {
+        border: solid 4px #fff;
+        border-radius: 5px;
+    }
+
+@media (min-width: 768px) {
+
+    .btn-default {
+        color: #fff;
+        width: auto;
+        border-color: #d59502;
+        background-color: #e8ac21;
+        transition: all .3s;
+    }
+
+}
+
+@media (min-width: 992px) {
+
+    .prof-pic {
+        max-width: 175%;
+        border: solid 4px #fff;
+        border-radius: 5px;
+    }
+
+    .u-loc {
+        color: #fff;
+        text-shadow: 1px 2px 3px #000;
+        margin-left: 16%;
+    }
+
+
+}
+
+@media (max-width: 1000px) {
+
+    .u-name {
+        color: #fff;
+        text-shadow: 1px 2px 3px #000;
+        font-size: 3em;
+        margin-left: 0 !important;
+    }
+
+
+
+}
